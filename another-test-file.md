@@ -10,7 +10,7 @@ public static void main(String[]){
 
 and now here is an actual image link
 [real link](https://thisisanimage.html)
-[[waiejfoapeoijfalsdkfj](asdfasfweijfoa)](wow.com.htmlasdfdfewef)
+[[waiejfoapeoijfalsdkfj](hasdfasfweijfoa)](www.lttstore.com)
 
 yo idk what I'm doing (and this is just some more random parenthsis for stuff)
 and this has no real point in things.
