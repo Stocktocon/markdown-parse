@@ -23,17 +23,11 @@ public class MarkdownParse {
                 i--;
             }
         }
-        for(int i = 0; i < openParenIndexes.size(); i++){
-            if(markdown.charAt(openParenIndexes.get(i) + 1) != 'h'){
-                openParenIndexes.remove(i);
-                i--;
-            }
-        }
+
 
         for(int openParen:openParenIndexes){
             toReturn.add(markdown.substring(openParen+1, markdown.indexOf(")",openParen)));
         }
-        System.out.println(openParenIndexes);
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
