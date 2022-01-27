@@ -20,11 +20,13 @@ public class MarkdownParse {
         for(int i = 0; i < openParenIndexes.size(); i++){
             if(markdown.charAt(openParenIndexes.get(i) - 1) != ']'){
                 openParenIndexes.remove(i);
+                i--;
             }
         }
         for(int i = 0; i < openParenIndexes.size(); i++){
             if(markdown.charAt(openParenIndexes.get(i) + 1) != 'h'){
                 openParenIndexes.remove(i);
+                i--;
             }
         }
 
