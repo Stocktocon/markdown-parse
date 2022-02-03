@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class MarkdownParse {
     public static ArrayList<String> getLinks(String markdown) {
         ArrayList<String> toReturn = new ArrayList<>();
-        ArrayList<Integer> openBraketIndexes = new ArrayList<>();
+        ArrayList<Integer> openBracketIndexes = new ArrayList<>();
         ArrayList<Integer> openParenIndexes = new ArrayList<>();
         ArrayList<Integer> closeBracketIndexes = new ArrayList<>();
         ArrayList<Integer> closeParenIndexes = new ArrayList<>();
@@ -18,7 +18,7 @@ public class MarkdownParse {
         int currentIndex = 0;
         while(currentIndex < markdown.lastIndexOf("[")) {
             int openBracketIndex = markdown.indexOf("[", currentIndex);
-            openBraketIndexes.add(openBracketIndex);
+            openBracketIndexes.add(openBracketIndex);
             currentIndex = openBracketIndex + 1;
         }
         //for ]
@@ -50,6 +50,25 @@ public class MarkdownParse {
             }
         }
 
+        for(int i = 0; i < openBracketIndexes.size(); i++){
+            if(openBracketIndexes.get(i) == 0){
+            }else if(markdown.charAt(openBracketIndexes.get(i) - 1) == '!'){
+                openBracketIndexes.remove(i);
+                i--;
+            }
+        }
+
+        for(int i = 0; i < closeBracketIndexes.size(); i++){
+            if(markdown.charAt(closeBracketIndexes.get(i) - 1) != '[' || 
+                markdown.charAt(closeBracketIndexes.get(i) - 1) != '(' ||
+                markdown.charAt(closeBracketIndexes.get(i) - 1) != ':'){
+
+                closeBracketIndexes.remove(i);
+                i--;
+            }
+        }
+
+
         /**
          * basically get an Integer Array of all of the indexes of [, ],(, and )
          * to then compare the contents between each bracket and each parenthesis
@@ -58,8 +77,8 @@ public class MarkdownParse {
          *      skip that index and go to the next in the list elsewise remove the index
          *      from the list
          * 
-         * 1.   Remove all indexes of [ where the previous character is ! to remove
-         *      the image case. ()
+         * 1.   also remove all places where there is  \ character 
+         *      before the []() but if there is a second \\ then ignore.
          * 2.   check all closed brackets to see if the next character is either (
          *      or [ due to how markdown reads links as [text](link) or
          *      [text][reference]

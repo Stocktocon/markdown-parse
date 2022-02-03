@@ -18,7 +18,7 @@ space in the link section test [space link](https:// thishas a space)
 
 \n test [
     this has a \n in the text
-](doesitwork.com)
+](doesitwork.com) 
 
 [this has a \n in the link](doesit
 work.com)
@@ -42,4 +42,4 @@ things and stuff woooooooo
 to make change easier to see
 
 [ref]: https://monkeytype.com
-[ref2]:https://10fastfingers.com
+[ref2] :https://10fastfingers.com
