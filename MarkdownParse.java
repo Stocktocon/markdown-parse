@@ -44,7 +44,8 @@ public class MarkdownParse {
         }
 
         for(int i = 0; i < openParenIndexes.size(); i++){
-            if(markdown.charAt(openParenIndexes.get(i) - 1) != ']'){
+            if(openParenIndexes.get(i) == 0){
+            }else if(markdown.charAt(openParenIndexes.get(i) - 1) != ']'){
                 openParenIndexes.remove(i);
                 i--;
             }
@@ -59,7 +60,8 @@ public class MarkdownParse {
         }
 
         for(int i = 0; i < closeBracketIndexes.size(); i++){
-            if(markdown.charAt(closeBracketIndexes.get(i) - 1) != '[' || 
+            if(closeBracketIndexes.get(i) == 0){
+            }else if(markdown.charAt(closeBracketIndexes.get(i) - 1) != '[' || 
                 markdown.charAt(closeBracketIndexes.get(i) - 1) != '(' ||
                 markdown.charAt(closeBracketIndexes.get(i) - 1) != ':'){
 
