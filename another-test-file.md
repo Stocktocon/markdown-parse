@@ -45,4 +45,7 @@ to make change easier to see
 [ref2] :https://10fastfingers.com
 
 
-testing committing and stuff through command line
+testing committing and stuff through command linegrade.sh %runs the student code
+
+git clone $1 %first commandline argument
+
