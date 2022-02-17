@@ -43,24 +43,33 @@ public class MarkdownParse {
             currentIndex = closeParenIndex + 1;
         }
 
+        //checks the character before the open
         for(int i = 0; i < openParenIndexes.size(); i++){
             if(openParenIndexes.get(i) == 0){
+                openParenIndexes.remove(i);
+                i--;
             }else if(markdown.charAt(openParenIndexes.get(i) - 1) != ']'){
                 openParenIndexes.remove(i);
                 i--;
             }
         }
 
+        //does the image type check
         for(int i = 0; i < openBracketIndexes.size(); i++){
             if(openBracketIndexes.get(i) == 0){
+                openBracketIndexes.remove(i);
+                i--;
             }else if(markdown.charAt(openBracketIndexes.get(i) - 1) == '!'){
                 openBracketIndexes.remove(i);
                 i--;
             }
         }
 
+        //does check for the closed brackets that must have a (, [, or : after for it to remain.
         for(int i = 0; i < closeBracketIndexes.size(); i++){
             if(closeBracketIndexes.get(i) == 0){
+                closeBracketIndexes.remove(i);
+                i--;
             }else if(markdown.charAt(closeBracketIndexes.get(i) - 1) != '[' || 
                 markdown.charAt(closeBracketIndexes.get(i) - 1) != '(' ||
                 markdown.charAt(closeBracketIndexes.get(i) - 1) != ':'){
