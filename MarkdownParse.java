@@ -30,7 +30,10 @@ public class MarkdownParse {
                 return result;
             }
             ArrayList<String> links = getLinks(Files.readString(p));
-            result.put(dirOrFile.getPath(), links);
+            if(Files.readString(p).contains("[")&&Files.readString(p).contains("]")&&
+            Files.readString(p).contains("(")&&Files.readString(p).contains(")")){
+                result.put(dirOrFile.getPath(), links);
+            }
             return result;
         }
     }
